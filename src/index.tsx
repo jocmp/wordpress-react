@@ -1,15 +1,23 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
+import Gallery from './Gallery';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const COMPONENTS: { [index: string]: any } = {
+	Gallery: <Gallery />
+};
+
+function renderComponent(element: Element) {
+	if (!(element instanceof HTMLElement)) {
+		return;
+	}
+	const name = element.dataset['reactComponent'] as string;
+	const component = COMPONENTS[name];
+	ReactDOM.render(component, element);
+	console.log(element.dataset['reactComponent']);
+}
+
+document.querySelectorAll('[data-react-component]').forEach(renderComponent);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
