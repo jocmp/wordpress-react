@@ -12,12 +12,12 @@ function entrypoints()
 
 function echo_css_file($asset)
 {
-    wp_enqueue_style($asset, '/wp-content/plugins/build/' . $asset, array(), false);
+    wp_enqueue_style($asset, '/wp-content/plugins/form_demo/' . $asset, array(), false);
 }
 
 function echo_js_file($asset)
 {
-    wp_enqueue_script($asset, '/wp-content/plugins/build/' . $asset, array(), false, true);
+    wp_enqueue_script($asset, '/wp-content/plugins/form_demo/' . $asset, array(), false, true);
 }
 
 function inject_css_files()

@@ -10,5 +10,11 @@ on their component name. This works a lot like the
 <div data-react-component="Gallery" />
 ```
 
-The runner will look for an object named `window.Gallery` mounted on the JavaScript `window` and
+The runner will look for an object named `window.FormDemo.Gallery` mounted on the JavaScript `window` and
 create and mount a React element at the root of the `div`.
+
+## Distribution
+The cornerstone of a Wordpress plugin is the trusty zip file.
+
+Run the `make zip` command to build the JS files and package the result into a
+file called `form_demo.zip` to install on your Wordpress site. 

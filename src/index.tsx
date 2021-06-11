@@ -5,24 +5,23 @@ import Gallery2 from './Gallery2';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
-const COMPONENTS: { [index: string]: any } = {
+window.FormDemo = {
 	Gallery,
-	Gallery2,
+	Gallery2
 };
-
-(window as any).Gallery = Gallery;
-(window as any).Gallery2 = Gallery2;
 
 const defaultConfig = {
   'NAME_ATTR': 'data-react-component',
+	'PROPS_ATTR': 'data-react-props',
   render: (component: any, props: any) => React.createElement(component, props),
   strict: true,
 };
 
 function mountComponent(node: any) {
+  console.log(node)
 	const config = Object.assign({}, defaultConfig, {});
 	const name = node.dataset['reactComponent'] as string;
-	ReactDOM.render(config.render(COMPONENTS[name], {}), node);
+	ReactDOM.render(config.render(window.FormDemo[name], {}), node);
 }
 
 function mountComponents() {
